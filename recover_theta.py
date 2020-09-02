@@ -44,10 +44,10 @@ als.batchsize = int(params['batchsize'])
 als.run_once()
 
 '''save result'''
-with open(params['file_name']+'_ALS_recovered_tensor_', 'wb') as fp:
+with open(params['file_name']+'_ALS_recovered_tensor', 'wb') as fp:
 	pickle.dump(als.x, fp)
 
-with open(params['file_name']+'_ALS_l2_loss_', 'wb') as fp:
+with open(params['file_name']+'_ALS_l2_loss', 'wb') as fp:
 	pickle.dump(als.l2loss, fp)
 
 with open(params['file_name']+'_ALS_term', 'wb') as fp:
