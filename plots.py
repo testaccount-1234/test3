@@ -4,7 +4,7 @@ import pickle
 def plotl2loss(legdims,measurements):
 	'''plots the l2 loss of the emperiments with different numbers of available measurements and legdimesnions'''
 	for i in range(len(measurements)):
-		l2loss_file_name = 'legdim='+str(legdims[i])+'_meas='+str(measurements[i])+'_ALS_l2_loss_'
+		l2loss_file_name = 'legdim='+str(legdims[i])+'_meas='+str(measurements[i])+'_ALS_l2_loss'
 		l2loss_file = open(l2loss_file_name,'rb')
 		l2loss = pickle.load(l2loss_file, encoding='latin1')
 		print(l2loss)
