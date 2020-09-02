@@ -1,0 +1,13 @@
+#!/bin/bash --login
+#$ -cwd
+#$ -N data_generation
+#$ -o ./out$TASK_ID.out
+#$ -j y
+#$ -l h_rt=200000
+#$ -l s_rt=200000
+#$ -m be
+#$ -M schuette@math.tu-berlin.de
+
+source alsenv/bin/activate
+bash job_data_$SGE_TASK_ID.sh
+bash job_rec_$SGE_TASK_ID.sh
