@@ -7,7 +7,7 @@ from sklearn.linear_model import Ridge
 class ALS:
     '''Alternating least squares algorithm for parameter reconstruction from meaurements b = f(A,x)'''
     def __init__(self,A,b,x_init,batchsize= 'd^2',theta='not_known'):
-    print("starting ALS")
+    	print("starting ALS")
         self.d = len(A[0][0]) # dimensions of tensor to be recovered
         if batchsize=='d^2':
             self.batchsize = self.d**2
