@@ -7,6 +7,7 @@ from sklearn.linear_model import Ridge
 class ALS:
     '''Alternating least squares algorithm for parameter reconstruction from meaurements b = f(A,x)'''
     def __init__(self,A,b,x_init,batchsize= 'd^2',theta='not_known'):
+    print("starting ALS")
         self.d = len(A[0][0]) # dimensions of tensor to be recovered
         if batchsize=='d^2':
             self.batchsize = self.d**2
@@ -51,6 +52,7 @@ class ALS:
     def run_once(self):
         '''H times update all local tensors iteratively over disjoint parts of the measurements A,b'''
         for h in range(self.H):
+            print("h=",h)
             '''###iterate local tensors'''
             l = list(range(self.N))
             #np.random.shuffle(l)
