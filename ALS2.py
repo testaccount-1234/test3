@@ -52,7 +52,7 @@ class ALS:
     def run_once(self):
         '''H times update all local tensors iteratively over disjoint parts of the measurements A,b'''
         for h in range(self.H):
-            print("h=",h)
+        	print("h=",h)
             '''###iterate local tensors'''
             l = list(range(self.N))
             #np.random.shuffle(l)
