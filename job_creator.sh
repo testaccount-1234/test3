@@ -9,7 +9,7 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     batchsize=$((legdim**2))
     H=1
     mmin=$((batchsize*order_of_tensor*H+batchsize))
-    mmax=$((order_of_tensor**legdim))
+    mmax=$((order_of_tensor**legdim+batchsize))
     mskip=$((batchsize*order_of_tensor))
     echo $mmin
     echo $mmax
