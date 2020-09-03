@@ -17,7 +17,7 @@ class ALS:
         self.b = b[self.batchsize:] # list of results b_l = f(A_l,x), l = 1,...,m
         self.N = len(self.A[0])
         self.m = len(self.A) # number of measurements available
-        self.H = int(self.m/(self.batchsize)) # number of iterations over whole tensor
+        self.H = int(self.m/(self.N*self.batchsize)) # number of iterations over whole tensor
         self.x = x_init # initialisation for ALS
         self.validation_data = A[0:self.batchsize]
         self.validation_measurements = b[0:self.batchsize]
