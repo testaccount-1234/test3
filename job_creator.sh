@@ -1,6 +1,6 @@
 counter=1
-dmin=5
-dmax=50
+dmin=10
+dmax=15
 dskip=5
 order_of_tensor=3
 
@@ -11,6 +11,8 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     mmin=$((batchsize*order_of_tensor*H+batchsize))
     mmax=$((order_of_tensor**legdim+batchsize))
     mskip=$((batchsize*order_of_tensor))
+    if ((mmax-mmin))>((10*mskip)):
+        mskip=$(((mmax-mmin)/(10*mskip)))
     echo $mmin
     echo $mmax
     echo $mskip
