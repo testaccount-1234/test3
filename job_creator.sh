@@ -1,6 +1,6 @@
 counter=1
-dmin=10
-dmax=15
+dmin=5
+dmax=50
 dskip=5
 order_of_tensor=3
 
@@ -11,16 +11,13 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     mmin=$((batchsize*order_of_tensor*H+batchsize))
     mmax=$((order_of_tensor**legdim+batchsize))
     mskip=$((batchsize*order_of_tensor))
-    l=$((10*mskip))
+    l=$((15*mskip))
     u=$((mmax-mmin))
     if (($l-le$u)); then
-        mskip=$((u/10))
+        mskip=$((u/15))
         echo 'if'
     fi
-    echo $legdim
-    echo $mmin
-    echo $mmax
-    echo $mskip
+    echo ${legdim},${mmin},${mmax},${mskip}
     for ((meas=mmin; meas<=mmax; meas+=mskip)); do
         echo "python recover_theta.py \"{'measurements': $meas, 'order': '$order_of_tensor','leg_dimension': '$legdim','file_name': 'legdim=${legdim}_meas=${meas}', 'batchsize': ${batchsize} ,'minimal_l2loss': '0.00000001', 'minimal_step_size': '0.00000001'}\"" > job_rec_$counter.sh
         ((counter++))

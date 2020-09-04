@@ -11,8 +11,13 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     mmin=$((batchsize*order_of_tensor*H+batchsize))
     mmax=$((order_of_tensor**legdim+batchsize))
     mskip=$((batchsize*order_of_tensor))
-    echo ${legdim}
-    echo ${mmin},${mmax}
+    l=$((15*mskip))
+    u=$((mmax-mmin))
+    if (($l-le$u)); then
+        mskip=$((u/15))
+        echo 'if'
+    fi
+    echo ${legdim},${mmin},${mmax},${mskip}
     for ((meas=mmin; meas<=mmax; meas+=mskip)); do
         echo "python gen_data.py \"{'measurements': $meas, 'order': '$order_of_tensor','leg_dimension': '$legdim','file_name': 'legdim=${legdim}_meas=${meas}', 'batchsize': ${batchsize} ,'minimal_l2loss': '0.00000001', 'minimal_step_size': '0.00000001'}\"" > job_data_$counter.sh
         ((counter++))
