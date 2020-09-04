@@ -1,7 +1,7 @@
 counter=1
-dmin=4
-dmax=4
-dskip=2
+dmin=5
+dmax=50
+dskip=5
 order_of_tensor=3
 
 echo 'ok1'
