@@ -14,7 +14,7 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     l=$((10*mskip))
     u=$((mmax-mmin))
     if (($l-le$u)); then
-        mskip=$((u/l))
+        mskip=$((u/10))
         echo 'if'
     fi
     echo $legdim
