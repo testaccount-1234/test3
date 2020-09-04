@@ -12,8 +12,8 @@ for ((legdim=dmin; legdim<=dmax; legdim+=dskip)); do
     mmax=$((order_of_tensor**legdim+batchsize))
     mskip=$((batchsize*order_of_tensor))
     l=$((10*mskip))
-    u= $((mmax-mmin))
-    if [$l -lt $u]; then
+    u=$((mmax-mmin))
+    if [$l-lt$u]; then
         mskip=$((u/l))
         echo 'if'
     fi
